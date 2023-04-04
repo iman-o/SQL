@@ -1,0 +1,29 @@
+# SQL
+SQL Portforlio
+/* create a Beauty Brands store database */
+CREATE TABLE beauty_byiman (ID integer primary key ,  item TEXT ,  Price INTEGER, amount_sold INTEGER,Section TEXT);
+
+INSERT INTO beauty_byiman VALUES( 1 , " eyeliner", 8.00, 20,"eyes");
+INSERT INTO beauty_byiman VALUES (2," eyeshadow palette", 20.00,13,"eyes");
+INSERT INTO beauty_byiman VALUES ( 3, " lipgloss",4.00,30,"lips");
+INSERT INTO beauty_byiman VALUES ( 4, " Brushes",13.00,15,"full face");
+INSERT INTO beauty_byiman VALUES ( 5, " beauty blender", 2.00,25,"full face");
+INSERT INTO beauty_byiman VALUES( 6, " eyeshadows", 20.00 , 40,"eyes");
+INSERT INTO beauty_byiman VALUES(7, "lip liner",4.00,24,"lips");
+INSERT INTO beauty_byiman VALUES (8, " contour stick",12.00,27,"cheekbones");
+INSERT INTO beauty_byiman VALUES (9, "highlighter",10.00,10,"cheekbones");
+INSERT INTO beauty_byiman VALUES (10,"powder",15.00,34,"face");
+INSERT INTO beauty_byiman VALUES (11,"makeup bag",3.00,45,"storage");
+INSERT INTO beauty_byiman VALUES (12," makeup case",19.00,24,"storage");
+INSERT INTO beauty_byiman VALUES (13,"blushes",17.00,50,"cheekbones");
+INSERT INTO beauty_byiman VALUES(14,"lipsticks",6.00,21,"lips");
+INSERT INTO beauty_byiman VALUES(15,"powder puff",7.00,39,"face");
+
+/* display the databases orderd by price*/
+
+SELECT * from beauty_byiman ORDER BY price asc;
+/* What is the average price of items used for storage?*/
+SELECT sum(price) FROM beauty_byiman WHERE section="storage";
+/* what are the most sold items? */
+
+SELECT * FROM beauty_byiman ORDER BY amount_sold asc;
