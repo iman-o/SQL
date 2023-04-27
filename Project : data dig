@@ -1,0 +1,37 @@
+/* what are the average , max and min in the data */
+SELECT * FROM sales LIMIT 4;
+
+SELECT AVG(price) AS average_price FROM sales;
+
+SELECT MAX(price) AS Highest_price FROM sales;
+
+SELECT MIN(price) AS Lowest_price FROM sales;
+
+/* What about those numbers per catogery in the data ? using HAVING */
+
+SELECT AVG(PRICE)  FROM sales GROUP BY country HAVING AVG(PRICE) > 1500;
+
+/* What ways are there to group the data values that dont exist yet? using CASE
+
+higher_ end , lower_end and medium_range will be used to catogerise the products by expensive and cheap
+*/
+
+SELECT ID , price, 
+
+CASE
+ 
+  WHEN price > 2000 THEN " Higher_end "
+  
+  WHEN price < 1500 THEN " Lower_end "
+  
+  ELSE "medium_range"
+  
+  END AS Price_range  FROM sales;
+
+ /* Querying data using AND / OR */
+
+SELECT * FROM sales WHERE product = "Chair" AND payment_type = "Visa";
+
+SELECT * FROM sales WHERE price >  1500 AND country = "Canada";
+
+SELECT * FROM sales WHERE price = 1200 OR price = 3600 ;
