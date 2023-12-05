@@ -7,7 +7,7 @@ SELECT SUM(stock_quantity)
 FROM superstore 
 WHERE item_name = 'Air Purifier';
 
-/* using aggergate functions to answer my questions */
+/*Show a statistic about the item prices */
 
 SELECT COUNT(stock_quantity)
 FROM superstore;
@@ -20,6 +20,7 @@ FROM superstore
 GROUP BY category
 ORDER BY price;
 
+#Show a statistic about the price for items in the category of "Kitchen Supplies"
 SELECT MAX(price) 
 FROM superstore
 WHERE category = "Kitchen Supplies";
