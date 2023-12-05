@@ -1,0 +1,25 @@
+SELECT * FROM superstore
+ORDER BY price ;
+
+/* how many airpurifiers in stock ? */
+
+SELECT SUM(stock_quantity) 
+FROM superstore 
+WHERE item_name = 'Air Purifier';
+
+/* using aggergate functions to answer my questions */
+
+SELECT COUNT(stock_quantity)
+FROM superstore;
+
+SELECT SUM(stock_quantity)
+FROM superstore;
+
+SELECT AVG(price) 
+FROM superstore
+GROUP BY category
+ORDER BY price;
+
+SELECT MAX(price) 
+FROM superstore
+WHERE category = "Kitchen Supplies";
