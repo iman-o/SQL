@@ -28,29 +28,29 @@ VALUES
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
 /* Use a SELECT statement to order the items by price */
-SELECT * FROM superstore
-ORDER BY price ;
+SELECT item_name,category,price
+FROM superstore 
+ORDER BY price DESC;
 
 /* how many airpurifiers in stock ? */
 
-SELECT SUM(stock_quantity) 
-FROM superstore 
+SELECT COUNT(item_name)
+FROM superstore
 WHERE item_name = 'Air Purifier';
 
-/*Show a statistic about the item prices */
+/* Order items by price prices */
 
-SELECT COUNT(stock_quantity)
-FROM superstore;
+SELECT item_name,category,price
+FROM superstore 
+ORDER BY price DESC;
 
-SELECT SUM(stock_quantity)
-FROM superstore;
-
-SELECT AVG(price) 
-FROM superstore
-GROUP BY category
-ORDER BY price;
 
 #Show a statistic about the price for items in the category of "Kitchen Supplies"
-SELECT MAX(price) 
-FROM superstore
-WHERE category = "Kitchen Supplies";
+SELECT 
+    SUM(price)   AS total_price,
+    AVG(price)   AS avg_price,
+    MIN(price)   AS cheapest_item,
+    MAX(price)   AS most_expensive_item,
+    COUNT(*)     AS total_items
+FROM superstore 
+WHERE category = "Kitchen Supplies" 
